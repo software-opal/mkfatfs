@@ -2,6 +2,7 @@ use eyre::Result;
 use structopt::StructOpt;
 
 mod generate;
+mod extract;
 
 #[derive(StructOpt, Debug, PartialEq)]
 #[structopt(author)]
@@ -18,6 +19,8 @@ pub struct CliArgs {}
 pub enum CliSubcommand {
     #[structopt(name = "generate")]
     Generate(generate::CliArgs),
+    #[structopt(name = "extract")]
+    Extract(extract::CliArgs),
 }
 
 fn main() -> Result<()> {
@@ -25,5 +28,6 @@ fn main() -> Result<()> {
 
     match opt.subcommand {
         CliSubcommand::Generate(args) => generate::main(opt.args, args),
+        CliSubcommand::Extract(args) => extract::main(opt.args, args),
     }
 }
