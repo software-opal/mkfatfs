@@ -1,8 +1,5 @@
-use eyre::ContextCompat;
 use eyre::{Result, WrapErr};
-use regex::RegexBuilder;
 use std::{
-    ffi::OsStr,
     fs, io,
     path::{Path, PathBuf},
 };
